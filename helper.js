@@ -63,16 +63,11 @@ const resetparticipantsContainerHeight = () => {
  */
 export const randomizeParticipants = () => {
   var participantsNodes = Array.from(
-    document.querySelectorAll('*[data-sort-key]')
+    document.querySelectorAll('*[role="listitem"]')
   );
-  var participants = [];
-  participantsNodes.forEach((node) => {
-    if (!node.innerHTML.startsWith('Presentation')) {
-      participants.push(
-        node.getAttribute('data-sort-key').split(' spaces/')[0]
-      );
-    }
-  });
+  var participants = participantsNodes.map(
+    (node) => node.innerText.split(/\n/g)[0]
+  );
   resetparticipantsContainerHeight();
 
   // If there are users sharing their screen, they appear duplicates
