@@ -1,6 +1,6 @@
 {
   "name": "Randomize Meet Participants",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "description": "Web extension that randomize Google Meet participants into a list. This is useful to set speaking order in the meeting.",
   "permissions": ["activeTab", "declarativeContent"],
   "background": {
