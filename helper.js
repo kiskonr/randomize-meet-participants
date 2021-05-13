@@ -3,7 +3,7 @@
  * @param {array} array
  * @returns {array}
  */
-const shuffleArray = (array) => {
+export const shuffleArray = (array) => {
   let index = array.length - 1,
     randomIndex,
     tempValue;

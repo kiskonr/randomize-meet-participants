@@ -4,18 +4,24 @@
 
   chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     if (request.action === 'randomize') {
-      (async () => {
-        const showParticipantsButton = document.querySelector(
-          '*[data-tab-id~="1"]'
+      if (request.participants !== null) {
+        setTimeout(() =>
+          sendResponse({ data: helper.shuffleArray(request.participants) })
         );
-        if (showParticipantsButton) {
-          showParticipantsButton.click();
-          await helper.loadAllParticipants();
-          sendResponse({ data: helper.randomizeParticipants() });
-        }
+      } else {
+        (async () => {
+          const showParticipantsButton = document.querySelector(
+            '*[data-tab-id~="1"]'
+          );
+          if (showParticipantsButton) {
+            showParticipantsButton.click();
+            await helper.loadAllParticipants();
+            sendResponse({ data: helper.randomizeParticipants() });
+          }
 
-        sendResponse({ data: [] });
-      })();
+          sendResponse({ data: [] });
+        })();
+      }
       return true; // keep the messaging channel open for sendResponse
     }
   });

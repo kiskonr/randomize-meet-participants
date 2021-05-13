@@ -12,8 +12,29 @@
       <div class="content">
         <ul id="list"></ul>
       </div>
+      <div class="custom-list hidden">
+        <textarea
+          rows="5"
+          name="custom-list"
+          id="custom-list-area"
+          placeholder="Put your list here, separated by comma or enter. Click shuffle button to update the list"
+        ></textarea>
+      </div>
       <div class="buttons">
-        <button id="refresh">Refresh</button>
+        <input
+          type="image"
+          src="images/shuffle.png"
+          alt="Shuffle"
+          id="shuffle"
+          title="Shuffle"
+        />
+        <input
+          type="image"
+          src="images/list.png"
+          alt="Custom list"
+          id="custom-list-bt"
+          title="Add custom list"
+        />
       </div>
     </div>
     <script src="popup.js"></script>
